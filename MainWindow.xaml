@@ -22,5 +22,12 @@
                    FontSize="30"
                    FontWeight="bold"/>
 
+        <StackPanel Orientation="Vertical" Grid.Row="1">
+            <TextBlock Text="Converted Currency" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontSize="20"/>
+        </StackPanel>
+
     </Grid>
 </mah:MetroWindow>
