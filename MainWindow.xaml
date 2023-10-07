@@ -5,6 +5,7 @@
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                  xmlns:local="clr-namespace:CurrencyConverterMahApps"
+                 xmlns:fa="http://schemas.fontawesome.io/icons/"
                  mc:Ignorable="d"
                  Title="CurrencyConverter" Height="450" Width="800">
     <Grid>
@@ -28,6 +29,57 @@
                    VerticalAlignment="Center"
                    FontSize="20"/>
         </StackPanel>
+
+        <Border Grid.Row="2" 
+                CornerRadius="5" 
+                Background="#f33944">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="1"
+                            >
+                    <Label Content="Enter Amount:"
+                           Foreground="White"/>
+                    <TextBox/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="3"
+                            >
+                    <Label Content="From:"
+                           Foreground="White"/>
+                    <ComboBox/>
+                </StackPanel>
+
+
+                <fa:ImageAwesome Icon="Exchange" 
+                                 Height="30" 
+                                 Width="30" 
+                                 Foreground="White" 
+                                 VerticalAlignment="Top"/>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Column="5"
+                            >
+                    <Label Content="To:"
+                           Foreground="White"/>
+                    <ComboBox/>
+                </StackPanel>
+
+
+
+            </Grid>
+        </Border>
 
     </Grid>
 </mah:MetroWindow>
