@@ -24,6 +24,7 @@ namespace CurrencyConverterMahApps
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = new MainVM();
         }
     }
 }
