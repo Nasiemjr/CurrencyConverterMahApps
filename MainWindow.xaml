@@ -55,7 +55,7 @@
                             >
                     <Label Content="Enter Amount:"
                            Foreground="White"/>
-                    <TextBox/>
+                    <TextBox Width="200" Height="39"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical"
@@ -63,7 +63,14 @@
                             >
                     <Label Content="From:"
                            Foreground="White"/>
-                    <ComboBox ItemsSource="{Binding Countries}"/>
+                    <ComboBox ItemsSource="{Binding Countries}"
+                              IsEditable="False"
+                              SelectedIndex="0"
+                              mah:TextBoxHelper.Watermark="Select a country:"
+                              mah:TextBoxHelper.UseFloatingWatermark="True"
+                              mah:TextBoxHelper.WatermarkAlignment="Left"
+                              HorizontalContentAlignment="Left"
+                              />
                 </StackPanel>
 
                 <StackPanel Grid.Column="4"
@@ -88,11 +95,15 @@
                             >
                     <Label Content="To:"
                            Foreground="White"/>
-                    <ComboBox ItemsSource="{Binding Countries}"/>
+                    <ComboBox ItemsSource="{Binding Countries}"
+                              IsEditable="False"
+                              SelectedIndex="0"
+                              mah:TextBoxHelper.Watermark="Select a country:"
+                              mah:TextBoxHelper.UseFloatingWatermark="True"
+                              mah:TextBoxHelper.WatermarkAlignment="Left"
+                              HorizontalContentAlignment="Left"
+                              />
                 </StackPanel>
-
-
-
             </Grid>
         </Border>
 

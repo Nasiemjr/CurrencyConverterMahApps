@@ -20,7 +20,7 @@ public class MainVM : ObservableObject
 	/// </summary>
 	private void GetCountries()
 	{
-        Countries.Add("--SELECT--");
+       // Countries.Add("--SELECT--");
         Countries.Add("INR");
         Countries.Add("USD");
         Countries.Add("EUR");
