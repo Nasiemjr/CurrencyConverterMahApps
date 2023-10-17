@@ -4,15 +4,16 @@
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                 xmlns:vc="clr-namespace:CurrencyConverterMahApps.Converters"
                  xmlns:local="clr-namespace:CurrencyConverterMahApps"
-                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                 xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
                  mc:Ignorable="d"
                  Title="CurrencyConverter" Height="450" Width="800">
 
     <Window.DataContext>
         <local:MainVM />
     </Window.DataContext>
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -63,14 +64,19 @@
                             >
                     <Label Content="From:"
                            Foreground="White"/>
-                    <ComboBox ItemsSource="{Binding Countries}"
+                    <ComboBox ItemsSource="{Binding Path=SelectedCountry, Converter={vc:EnumToCollectionConverter}, Mode=OneTime}"
                               IsEditable="False"
-                              SelectedIndex="0"
+                              SelectedIndex="{Binding SelectedCountryIndex, Mode=OneWayToSource}"
+                              Height="50"
+                              SelectedValuePath="Value"
+                              DisplayMemberPath="Description"
+                              SelectedValue="{Binding Path=SelectedCountry, Mode=OneWayToSource}"
                               mah:TextBoxHelper.Watermark="Select a country:"
                               mah:TextBoxHelper.UseFloatingWatermark="True"
                               mah:TextBoxHelper.WatermarkAlignment="Left"
                               HorizontalContentAlignment="Left"
-                              />
+                              Foreground="Black"/>
+
                 </StackPanel>
 
                 <StackPanel Grid.Column="4"
@@ -81,7 +87,7 @@
                                                 Height="22"
                                                 Foreground="White"
                                                 Kind="RegularRightArrowAlt"/>
-                    
+
                     <iconPacks:PackIconBoxIcons VerticalAlignment="Center"
                                                 HorizontalAlignment="Center"
                                                 Width="22"
@@ -95,17 +101,31 @@
                             >
                     <Label Content="To:"
                            Foreground="White"/>
-                    <ComboBox ItemsSource="{Binding Countries}"
+                    <ComboBox ItemsSource="{Binding Path=SelectedCountry, Converter={vc:EnumToCollectionConverter}, Mode=OneTime}"
                               IsEditable="False"
-                              SelectedIndex="0"
+                              SelectedIndex="{Binding SelectedToCountryIndex, Mode=OneWayToSource}"
+                              Height="50"
+                              SelectedValuePath="Value"
+                              DisplayMemberPath="Description"
+                              SelectedValue="{Binding Path=SelectedToCountry, Mode=OneWayToSource}"
                               mah:TextBoxHelper.Watermark="Select a country:"
                               mah:TextBoxHelper.UseFloatingWatermark="True"
                               mah:TextBoxHelper.WatermarkAlignment="Left"
                               HorizontalContentAlignment="Left"
-                              />
+                              Foreground="Black"/>
                 </StackPanel>
             </Grid>
         </Border>
+
+        <Button Grid.Column="0"
+                Grid.Row="3"
+                Width="200"
+                Height="50"
+                Content="Convert"
+                Background="red"
+                Foreground="White"
+                Command="{Binding ConvertCommand}"
+                />
 
     </Grid>
 </mah:MetroWindow>
