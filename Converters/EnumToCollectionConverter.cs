@@ -16,7 +16,7 @@ public class EnumToCollectionConverter : MarkupExtension, IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
     {
-        return EnumHelper.GetAllValuesAndDescriptions(value.GetType());
+        return EnumHelper.GetAllValuesAndDescriptions(value.GetType()).Where(v => !string.IsNullOrEmpty((string?)v.Description));
     }
     public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
     {

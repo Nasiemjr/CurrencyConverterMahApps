@@ -14,7 +14,9 @@ public class MainVM : ObservableObject
 {
 	public enum COUNTRIES
 	{
-		[Description("Indian Rupee")]
+        [Description("")]
+        NOT_SET=0,
+        [Description("Indian Rupee")]
 		INR,
 		[Description("United States Dollar")]
         USD,
